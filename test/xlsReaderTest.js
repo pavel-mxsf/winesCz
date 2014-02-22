@@ -14,4 +14,3 @@ describe('XLS reader', function(){
         })
     })
 });
-

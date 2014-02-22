@@ -5,6 +5,7 @@ var xlsParser = require("xlsParser");
 
 describe('XLS parser', function(){
     var wineList = '';
+
     before(function(done){
         this.timeout(5000);
         xlsParser.parseXlsFile(__dirname + '/test.xls')
@@ -120,7 +121,6 @@ describe('XLS parser', function(){
             wine.should.have.property('batch', '135');
             wine.should.have.property('fullName', 'Ryzlink rýnský, jakostní víno s přívlastkem výběr z hroznů');
         });
-
     });
 
     describe('parsing xls object to array', function(){
