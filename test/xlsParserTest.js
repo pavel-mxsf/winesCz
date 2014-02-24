@@ -8,7 +8,7 @@ describe('XLS parser', function(){
 
     before(function(done){
         this.timeout(5000);
-        xlsParser.parseXlsFile(__dirname + '/test.xls')
+        xlsParser.parseXlsFile(__dirname + '/xls/test.xls')
             .then(function(data){
                 wineList = data;})
             .done(done);
