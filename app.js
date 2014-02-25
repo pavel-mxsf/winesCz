@@ -1,10 +1,11 @@
 var wineListLoader = require('wineListLoader');
-var fs = require('fs');
-wineListLoader.listWinesFromDir('./xls').then(
-    function(data) {
-        fs.writeFile('data.json', JSON.stringify(data, null, 4), function (err) {
-            if (err) throw err;
-            console.log('It\'s saved!');
-        });
-    }
-)
+var winesExporter = require('winesExporter');
+
+
+
+var toDataFile = winesExporter.toFile('data2.json');
+
+wineListLoader.listWinesFromDir('./xls')
+    .then(toDataFile)
+    .then(function(){console.log('saved')})
+    .catch(function(err){console.log(err)})

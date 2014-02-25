@@ -13,7 +13,8 @@
   "dependencies": {
 	"express": "3.4.7",
 	"q": "*",
-	"xlsjs": "*"
+	"xlsjs": "*",
+    "mongodb": "*"
   },
 	"devDependencies": {
 		"mocha": "*",
