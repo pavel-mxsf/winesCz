@@ -4,7 +4,6 @@ var q = require('q');
 var wineListLoader = require('wineListLoader');
 
 describe('wine list loader', function(){
-
     describe('directory reader', function(){
         this.timeout(20000);
         it('should read all files in /xls/ directory', function(done){
