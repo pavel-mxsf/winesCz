@@ -14,7 +14,8 @@
 	"express": "3.4.7",
 	"q": "*",
 	"xlsjs": "*",
-    "mongodb": "*"
+    "mongodb": "*",
+      "xml2js": "*"
   },
 	"devDependencies": {
 		"mocha": "*",
