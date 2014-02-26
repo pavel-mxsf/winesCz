@@ -10,10 +10,11 @@ var toMongo = winesExporter.toMongo({
     port: 31359,
     db: 'winescz',
     username: '**',
-    password: '**'
+    password: '**',
+    collection:'wines'
     });
 
 wineListLoader.listWinesFromDir('./xls')
     .then(toMongo)
     .then(function(){console.log('saved')})
-    .catch(function(err){console.log(err)})
+    .catch(function(err){console.log(err)});

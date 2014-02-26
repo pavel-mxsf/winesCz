@@ -10,7 +10,7 @@ describe('wine list loader', function(){
             wineListLoader.listDirectory(__dirname + '/xls/')
                 .then(function(data) {
                     data.should.be.an.Array;
-                    data.should.have.length(3);
+                    data.should.have.length(1);
                 })
                 .catch(function(err){done(err)})
                 .done(function(){done()});
@@ -19,7 +19,7 @@ describe('wine list loader', function(){
             wineListLoader.listWinesFromDir(__dirname + '/xls/')
                 .then(function(data) {
                     data.should.be.an.Array;
-                    data.should.be.greaterThan(12000);
+                    data.should.have.lengthOf(115);
                 })
                 .fin(function(){done()});
         });
