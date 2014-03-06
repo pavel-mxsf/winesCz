@@ -1,20 +1,19 @@
-var wineListLoader = require('wineListLoader');
-var winesExporter = require('winesExporter');
+var express = require('express');
+var restify = require('restify');
+var db = require('dbFactory');
+var app = express();
 
+app.use(express.bodyParser());
+app.use(express.query());
 
-
-var toDataFile = winesExporter.toFile('data2.json');
-
-var toMongo = winesExporter.toMongo({
-    host:'**.mongolab.com',
+var options = {
+    host:'ds031359.mongolab.com',
     port: 31359,
     db: 'winescz',
-    username: '**',
-    password: '**',
+    username: 'paja',
+    password: 'nasrat',
     collection:'wines'
-    });
+};
 
-wineListLoader.listWinesFromDir('./xls')
-    .then(toMongo)
-    .then(function(){console.log('saved')})
-    .catch(function(err){console.log(err)});
+db.connect('mongodb://' + options.host + ':' + options.port + '/' + options.db);
+

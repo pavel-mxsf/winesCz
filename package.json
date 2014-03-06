@@ -15,7 +15,9 @@
 	"q": "*",
 	"xlsjs": "*",
     "mongodb": "*",
-      "xml2js": "*"
+      "xml2js": "*",
+      "restify": "*",
+      "throat": "*"
   },
 	"devDependencies": {
 		"mocha": "*",
