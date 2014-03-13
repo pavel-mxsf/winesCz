@@ -17,7 +17,8 @@
     "mongodb": "*",
       "xml2js": "*",
       "restify": "*",
-      "throat": "*"
+      "throat": "*",
+      "mongoose": "*"
   },
 	"devDependencies": {
 		"mocha": "*",
