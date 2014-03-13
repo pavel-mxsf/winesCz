@@ -48,6 +48,7 @@ app.get('/wines', function(req,res){
     var likeSearchString = [
         'search'
         ];
+
     acceptableFields.forEach(function(field) {
         if (req.query[field]) {filteredQuery[field] = req.query[field];}
     });
@@ -55,9 +56,20 @@ app.get('/wines', function(req,res){
         if (req.query[field]) {filteredQuery[field] = {'$regex': req.query[field]}}
     });
     likeSearchString.forEach(function(field) {
-        if (req.query[field]) {filteredQuery[field] = {'$regex': req.query[field].toLowerCase()}}
-    });
+        if (req.query[field]) {
+            var query = {$and:[]};
+            var fields = req.query[field].split(/[ ]+/);
+            filteredQuery.$and = [];
+            fields.forEach(function(f){
+                console.log(f);
+                var q = {};
 
+                q[field] = {'$regex': f.toLowerCase()};
+                filteredQuery.$and.push(q);
+            });
+        }
+    });
+    console.log(JSON.stringify(filteredQuery));
     req.query.limit = req.query.limit || 20;
     req.query.skip = req.query.skip || 0;
     wine.find(filteredQuery)
